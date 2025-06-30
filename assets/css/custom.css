@@ -1,0 +1,560 @@
+@font-face {
+  font-family: "Field52";
+  src: url(../font-field/FieldGothicTEST-No.52.otf) format("opentype");
+  font-weight:52;
+  font-display: swap;
+
+}
+@font-face {
+  font-family: "Field53";
+  src: url(../font-field/FieldGothicTEST-No.53.otf) format("opentype");
+  font-weight:53;
+  display: swap;
+}
+@font-face {
+  font-family: "Field54";
+  src: url(../font-field/FieldGothicTEST-No.54.otf) format("opentype");
+  font-weight:54;
+  display: swap;
+}
+
+:root {
+  /* Primary Palette */
+  --primary-50:  #F1F9FE;
+  --primary-100: #E2F1FC;
+  --primary-200: #AEE4FF;
+  --primary-300: #86CDF3;
+  --primary-400: #45B4EB;
+  --primary-500: #2EA6E3;
+  --primary-600: #107CB9;
+  --primary-700: #0E6296;
+  --primary-800: #10537C;
+  --primary-900: #134667;
+  --primary-950: #0D2D44;
+
+  /* Secondary Palette (replace with your values) */
+  --secondary-50:  #FFF4ED;
+  --secondary-100: #FFE7D6;
+  --secondary-200: #FDCBAB;
+  --secondary-300: #FBA776;
+  --secondary-400: #F9773E;
+  --secondary-500: #F65319;
+  --secondary-600: #F03E12;
+  --secondary-700: #C0280E;
+  --secondary-800: #982214;
+  --secondary-900: #7B1F13;
+  --secondary-950: #420C08;
+
+  /* Grays */
+  --gray-50:  #F6F6F6;
+  --gray-100: #E7E7E7;
+  --gray-200: #D1D1D1;
+  --gray-300: #B0B0B0;
+  --gray-400: #888888;
+  --gray-500: #6D6D6D;
+  --gray-600: #5D5D5D;
+  --gray-700: #4F4F4F;
+  --gray-800: #454545;
+  --gray-900: #3D3D3D;
+  --gray-950: #000000;
+
+  /* Text Tokens */
+  --text-primary: var(--primary-500);
+  --text-black: var(--gray-950);
+  --text-secondary: var(--gray-900);
+  --text-disabled: var(--gray-400);
+  --text-white: #FFFFFF;
+  --text-white-80: var(--primary-50);
+
+  /* Border Tokens */
+  --border-white: #FFFFFF;
+  --border-black: var(--gray-950);
+  --border-gray: var(--gray-400);
+  --border-gray-2: var(--gray-100);
+
+  /* Background Tokens */
+  --bg-body: var(--primary-200);
+  --bg-card: var(--primary-50);
+  --bg-footer: var(--primary-950);
+
+
+  /* Cornor Radius */
+  --radius-xs: 5px;
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-xl: 40px;
+  --radius-full: 999px;
+
+  /* gaps */
+  --gap-xxs: 5px;
+  --gap-xs: 10px;
+  --gap-md: 20px;
+  --gap-form: 30px;
+  
+  /* font family */
+  --font-family-primary: "Raleway";
+  --font-family-secondry-52: "Field52";
+  --font-family-secondry-53: "Field53";
+  --font-family-secondry-54: "Field54";
+}
+
+body {
+    background-color: var(--bg-body);
+    margin: 0;
+    padding: 0;
+}
+.container{
+  width: 100%;
+  max-width: 1220px !important;
+}
+section{
+  padding:80px 0px;
+}
+.footer-container{
+  padding:50px 20px 20px 20px;
+}
+
+:root {
+  /* ========== Mobile-first Base (below 768px) ========== */
+  --title: 40px;
+  --title-lineheight: 110%;
+
+  --h1: 30px;
+  --h1-lineheight: 38px;
+  --h2: 26px;
+  --h2-lineheight: 34px;
+  --h3: 22px;
+  --h3-lineheight: 30px;
+  --h4: 18px;
+  --h4-lineheight: 26px;
+  --h5: 16px;
+  --h5-lineheight: 22px;
+  --h6: 14px;
+
+  --lg: 16px;
+  --lg-lineheight: 24px;
+  --md: 14px;
+  --md-lineheight: 22px;
+  --rg: 13px;
+  --rg-lineheight: 20px;
+  --sm: 12px;
+  --sm-lineheight: 18px;
+  --xs: 11px;
+
+  --btn-text: 14px;
+  --link-text: 14px;
+  --anchor-text: 14px;
+
+  --sidebar-title: 14px;
+  --sidebar-text: 12px;
+
+  --gap-heading-content: 36px;
+  --gap-container-y: 40px;
+  --gap-content-footer: 16px;
+  --gap-footer-footer: 16px;
+  --gap-footer-content: 16px;
+  --gap-content-heading: 16px;
+  --gap-heading-sub: 20px;
+  --gap-container-y: 80px;
+  --gap-container-top:60px;
+  --gap-container-x:110px;
+
+  --padding-xs: 10px 10px;
+  --padding-sm: 20px 20px;
+  --padding-md: 30px 20px;
+  --Cards-sm-y: 30px 10px;
+  --padding-lg: 40px 30px;
+  --padding-badge: 6px 12px;
+  --padding-button: 8px 20px;
+  --padding-nav: 8px 16px;
+  --padding-contact-footer:46px 58px;
+  
+}
+
+/* ========== 768px (Tablet Portrait) ========== */
+@media (min-width: 600px) {
+  :root{
+        --padding-contact-footer:46px 28px;
+
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --title: 50px;
+    --title-lineheight: 110%;
+
+    --h1: 56px;
+    --h1-lineheight: 46px;
+    --h2: 30px;
+    --h2-lineheight: 38px;
+    --h3: 26px;
+    --h3-lineheight: 34px;
+    --h4: 22px;
+    --h4-lineheight: 30px;
+    --h5: 18px;
+    --h5-lineheight: 26px;
+    --h6: 16px;
+
+    --lg: 17px;
+    --md: 16px;
+    --rg: 15px;
+    --sm: 14px;
+    --xs: 13px;
+
+    --gap-container-y: 50px;
+    --padding-md: 40px 30px;
+    --padding-lg: 50px 40px;
+     --padding-xs: 20px 20px;
+    --padding-sm: 30px 30px;
+    --padding-badge: 10px 20px;
+    --padding-button: 0px 30px;
+    --padding-nav: 10px 20px;
+    --padding-contact-footer:46px 58px;
+    --padding-contact-footer:46px 28px;
+
+  }
+}
+
+/* ========== 992px (Tablet Landscape / Small Laptop) ========== */
+@media (min-width: 992px) {
+  :root {
+    --title: 60px;
+    --title-lineheight: 108%;
+
+    --h1: 42px;
+    --h1-lineheight: 52px;
+    --h2: 36px;
+    --h2-lineheight: 45px;
+    --h3: 30px;
+    --h3-lineheight: 40px;
+    --h4: 26px;
+    --h4-lineheight: 36px;
+    --h5: 20px;
+    --h5-lineheight: 30px;
+    --h6: 18px;
+
+    --lg: 18px;
+    --md: 17px;
+    --rg: 16px;
+
+    --gap-heading-content: 34px;
+    --gap-container-y: 60px;
+    --padding-md: 50px 35px;
+     --padding-xs: 20px 20px;
+    --padding-sm: 30px 30px;
+    --padding-lg: 60px 60px;
+    --padding-badge: 10px 20px;
+    --padding-button: 0px 30px;
+    --padding-nav: 10px 20px;
+    --padding-contact-footer:46px 58px;
+  }
+}
+
+/* ========== 1024px (Laptop) ========== */
+@media (min-width: 1024px) {
+  :root {
+    --title: 65px;
+    --title-lineheight: 105%;
+
+    --h1: 48px;
+    --h1-lineheight: 58px;
+    --h2: 40px;
+    --h2-lineheight: 50px;
+    --h3: 32px;
+    --h3-lineheight: 44px;
+    --h4: 28px;
+    --h4-lineheight: 38px;
+    --h5: 22px;
+    --h5-lineheight: 32px;
+    --h6: 20px;
+
+    --lg: 20px;
+    --md: 18px;
+    --rg: 17px;
+
+    --padding-md: 60px 40px;
+    --padding-lg: 70px 50px;
+     --padding-xs: 20px 20px;
+    --padding-sm: 30px 30px;
+    --padding-badge: 10px 20px;
+    --padding-button: 0px 30px;
+    --padding-nav: 10px 20px;
+    --padding-contact-footer:46px 58px;
+  }
+
+}
+
+/* ========== 1366px (Widescreen Laptops) ========== */
+@media (min-width: 1300px) {
+  :root {
+    --title: 75px;
+    --title-lineheight: 105%;
+
+    --h1: 75px;
+    --h1-lineheight: 80px;
+    --h2: 46px;
+    --h2-lineheight: 55px;
+    --h3: 36px;
+    --h3-lineheight: 48px;
+    --h4: 30px;
+    --h4-lineheight: 40px;
+    --h5: 24px;
+    --h5-lineheight: 32px;
+    --h6: 22px;
+
+    --lg: 21px;
+    --md: 19px;
+    --rg: 18px;
+
+    --gap-heading-content: 30px;
+    --gap-container-y: 70px;
+    --padding-md: 60px 50px;
+    --padding-lg: 80px 60px;
+     --padding-xs: 20px 20px;
+    --padding-sm: 30px 30px;
+    --padding-md: 60px 40px;
+    --padding-lg: 60px 60px;
+    --padding-badge: 10px 20px;
+    --padding-button: 0px 30px;
+    --padding-nav: 10px 20px;
+    --padding-contact-footer:46px 58px;
+  }
+}
+
+/* ========== 1440px (Full HD) ========== */
+@media (min-width: 1440px) {
+  :root {
+    --title: 80px;
+    --title-lineheight: 105%;
+
+    --h1: 80px;
+    --h1-lineheight: 84px;
+    --h2: 50px;
+    --h2-lineheight: 55px;
+    --h3: 40px;
+    --h3-lineheight: 57px;
+    --h4: 35px;
+    --h4-lineheight: 38px;
+    --h5: 25px;
+    --h5-lineheight: 28px;
+    --h6: 23px;
+
+    --lg: 22px;
+    --lg-lineheight: 28px;
+    --md: 18px;
+    --md-lineheight: 28px;
+    --rg: 16px;
+    --rg-lineheight: 24px;
+    --sm: 15px;
+    --sm-lineheight: auto;
+    --xs: 14px;
+    --xs-lineheight: auto;
+
+    --btn-text: 18px;
+    --link-text: 16px;
+    --anchor-text: 16px;
+
+    --sidebar-title: 18px;
+    --sidebar-text: 14px;
+
+    --gap-heading-content: 40px;
+    --gap-container-y: 80px;
+    --gap-content-footer: 24px;
+    --gap-footer-footer: 24px;
+    --gap-footer-content: 24px;
+    --gap-content-heading: 24px;
+    --gap-main-card: 40px 60px;
+
+    --padding-xs: 20px 20px;
+    --padding-sm: 30px 30px;
+    --padding-md: 60px 40px;
+    --padding-lg: 60px 60px;
+    --padding-badge: 10px 20px;
+    --padding-button: 0px 30px;
+    --padding-nav: 10px 20px;
+    --padding-contact-footer:46px 58px;
+  }
+}
+
+
+
+    /* Typography */
+
+    .title {
+        font-size: var(--title);
+        line-height: var(--title-lineheight);
+    }
+    h1 {
+        font-size: var(--h1);
+        line-height: var(--h1-lineheight);
+    }
+    .custom-h2 {
+        font-size: var(--h1);
+        line-height: var(--h1-lineheight);
+        color: var(--text-white);
+        text-align: center;
+        /* Title/H2 */
+        font-family: var(--font-family-secondry-52);
+        font-style: normal;
+        font-weight: var(--Weights-mini, 400);
+        
+    }
+    .custom-h2 span{
+      font-family: var(--font-family-secondry-54);
+    }
+    .custom-h3 {
+        margin: 0px;
+        padding: 0px;
+        font-size: var(--h2);
+        line-height: var(--h2-lineheight);
+        font-style: normal;
+        font-weight: 500;
+        font-family: var(--font-family-secondry-53);
+    }
+    .custom-h4 {
+        margin: 0px;
+        padding: 0px;
+        font-size: var(--h4);
+        line-height: var(--h4-lineheight);
+        font-family: var(--font-family-primary);
+        font-style: normal;
+        font-weight: var(--Weights-bold, 600);
+        text-align: center;
+    }
+    h5 {
+        font-size: var(--h5);
+        line-height: var(--h5-lineheight);
+    }
+    h6 {
+        font-size: var(--h6);
+        line-height: var(--h6-lineheight);
+    }
+    .lg
+     {
+        font-size: var(--lg);
+        line-height: var(--p-lineheight);
+    }
+
+    .rg
+     {
+        font-size: var(--p);
+        line-height: var(--p-lineheight);
+    }
+    /* main button */
+          .custom-main-btn-wrapper {
+    width: 212px !important;
+    display: inline-block !important;
+}
+
+    .custom-main-btn button{
+        width: 100%;
+        justify-content: space-between;
+    }
+     .custom-main-btn-wrapper{
+      width: 212px;
+    }
+    .custom-main-btn{
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.40);
+      padding: 7px;
+    }
+    .custom-main-btn button{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--gap-xs);
+      padding-left: 30px;
+      padding-right: 10px;
+      border-radius: 100px;
+      
+      background: var(--Button-Gradient, linear-gradient(180deg, #FC8753 0%, #F03E12 100%));
+      box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.07);
+      border: none;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .custom-main-btn button span{
+      color: #fff;
+      text-align: center;
+      font-family: var(--font-family-primary);
+      font-size: var(--md);
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .custom-main-btn button img{
+      padding: 6px;
+      border-radius: 110px;
+      background: #fff;
+      
+    }
+    /* primary button */
+    .custom-primary-btn{
+      display: flex;
+      padding-left: 30px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-right: 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 100px;
+      border: none;
+      background: var(--Button-Gradient, linear-gradient(180deg, #FC8753 0%, #F03E12 100%));
+      box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.07);
+    }
+    .custom-primary-btn span{
+      color: #FFF;
+      text-align: center;
+      font-family: var(--font-family-primary);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .custom-primary-btn i{
+      
+      padding: 8px 9px; 
+      border-radius: 110px;
+      background: #FFF;
+    }
+    /* secondry button */
+    .custom-secondry-btn-wrapper{
+      width: 212px;
+    }
+    .custom-secondry-btn{
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.40);
+      padding: 7px;
+    }
+    .custom-secondry-btn button{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--gap-xs);
+      padding-left: 30px;
+      padding-right: 10px;
+      border-radius: 100px;
+      background: #fff;
+      box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.07);
+      border: none;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .custom-secondry-btn button span{
+      color: #000;
+      text-align: center;
+      font-family: var(--font-family-primary);
+      font-size: var(--md);
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .custom-secondry-btn button img{
+      padding: 6px;
+      border-radius: 110px;
+      background: var(--Button-Gradient, linear-gradient(180deg, #FC8753 0%, #F03E12 100%));
+    }
+
+

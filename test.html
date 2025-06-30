@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Footer Dropdown</title>
+
+  <!-- Font Awesome for chevron icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-links-wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 20px;
+      background: #0D2D44;
+      color: white;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-links h6 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      cursor: default;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 600px) {
+      .footer-links-wrapper {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .footer-links {
+        padding: 10px 0;
+      }
+
+      .footer-links h6 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .footer-links a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        margin-bottom: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .footer-links.open a {
+        max-height: 100px;
+        margin-bottom: 8px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .footer-links h6 i {
+        font-size: 16px;
+        transition: transform 0.3s ease;
+      }
+
+      .footer-links.open h6 i {
+        transform: rotate(180deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="footer-links-wrapper">
+    <div class="footer-links">
+      <h6>Santa Rosa Solar <i class="fa-solid fa-chevron-down"></i></h6>
+      <a href="">Recent Projects</a>
+      <a href="">Calculate Savings</a>
+      <a href="">FAQ’s</a>
+      <a href="">Blogs</a>
+    </div>
+    <div class="footer-links">
+      <h6>Our Company <i class="fa-solid fa-chevron-down"></i></h6>
+      <a href="">About Us</a>
+      <a href="">Terms & Conditions</a>
+      <a href="">Privacy Policy</a>
+    </div>
+    <div class="footer-links">
+      <h6>Contact Us <i class="fa-solid fa-chevron-down"></i></h6>
+      <a href="">(707)495-0090</a>
+      <a href="">SantaRosaSolar1@gmail.com</a>
+      <a href="">1791 Marlow Road, Santa Rosa, 95407</a>
+    </div>
+  </div>
+
+  <script>
+    function handleDropdowns() {
+      const isMobile = window.innerWidth <= 600;
+      const sections = document.querySelectorAll('.footer-links');
+
+      sections.forEach(section => {
+        const title = section.querySelector('h6');
+        const icon = section.querySelector('i');
+
+        // Remove any previous click
+        title.onclick = null;
+
+        if (isMobile) {
+          title.onclick = () => {
+            section.classList.toggle('open');
+          };
+        } else {
+          section.classList.remove('open');
+        }
+      });
+    }
+
+    window.addEventListener('load', handleDropdowns);
+    window.addEventListener('resize', handleDropdowns);
+  </script>
+
+</body>
+</html>
