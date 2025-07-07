@@ -119,6 +119,7 @@
     }
     .faq-left{
         align-items: center;
+        order: 2;
     }
     .faq-left h4{
         font-size: 30px;
@@ -302,6 +303,15 @@
     .installation-details p{
         line-height: 26px;
     }
+    .keywords
+ {
+    min-width: 305px;
+ }
+ .blogs-input{
+    min-width: 100%;
+ }
+
+
 }
 
 @media (max-width: 395px){

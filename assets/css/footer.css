@@ -220,7 +220,7 @@ line-height: normal;
         width: 100% !important;
     }
     .footer-inner{
-        padding: 238px 25px 38px 25px;
+        padding: 238px 10px 38px 10px;
     }
         .footer-inner-content {
         gap: 0px !important;
@@ -286,7 +286,7 @@ line-height: normal;
     @media (max-width: 600px) {
       .footer-links-wrapper {
         flex-direction: column;
-        padding: 20px;
+        padding: 0px;
       }
 
       .footer-links {

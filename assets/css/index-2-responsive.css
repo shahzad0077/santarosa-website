@@ -287,9 +287,11 @@
     font-size: 14px;
     line-height: 22px;
 }
-.test-card-p-1 {
-        height: 590px;
+
+      .test-card-p-1 {
+        min-height: 450px;
     }
+    
     .reviews-tag{
     display: flex;
     flex-direction: column;

@@ -127,8 +127,15 @@ select{
     background: none;
     appearance: none;
     outline: none;
+    width: 100%;
+    font-family: "Raleway";
+font-size: var(--Sizes-rg, 16px);
+font-style: normal;
+font-weight: var(--Weights-medium, 400);
+line-height: 24px; /* 150% */
 }
 select option{
+    padding: 10px;
     color: var(--Text-Black, #000);
 
 /* Regullar/rg */
@@ -315,7 +322,7 @@ background: var(--Borders-black, #000);
 
 /* Regullar/lg */
 font-family: var(--font-family-primary);
-font-size: var(--Sizes-lg, 22px);
+font-size: var(--Sizes-lg, 20px);
 font-style: normal;
 font-weight: var(--Weights-bold, 600);
 line-height: var(--Line-Height-md, 28px); /* 127.273% */
