@@ -301,3 +301,27 @@ const video = document.getElementById('customVideo');
                 });
             });
         });
+
+         function handleDropdowns() {
+              const isMobile = window.innerWidth <= 600;
+              const sections = document.querySelectorAll('.footer-links');
+        
+              sections.forEach(section => {
+                const title = section.querySelector('h6');
+                const icon = section.querySelector('i');
+        
+                // Remove any previous click
+                title.onclick = null;
+        
+                if (isMobile) {
+                  title.onclick = () => {
+                    section.classList.toggle('open');
+                  };
+                } else {
+                  section.classList.remove('open');
+                }
+              });
+            }
+        
+            window.addEventListener('load', handleDropdowns);
+            window.addEventListener('resize', handleDropdowns);

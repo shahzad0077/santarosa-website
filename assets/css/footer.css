@@ -220,6 +220,9 @@ line-height: normal;
     .footer-inner{
         padding: 238px 25px 38px 25px;
     }
+        .footer-inner-content {
+        gap: 0px !important;
+    }
 }
 
 @media (max-width: 391px){
@@ -227,7 +230,7 @@ line-height: normal;
         padding: 14px 5px !important;
     }
     .number-details a{
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
