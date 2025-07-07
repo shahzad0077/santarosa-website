@@ -20,7 +20,7 @@
 }
 .overly{
     position: relative;
-    height: 200px;
+    height: 100px;
 }
 .overly::before{
 position: absolute;
@@ -29,7 +29,7 @@ position: absolute;
     background: var(--primary-200);
     filter: blur(35px);
     height: 200px;
-    top: 100px;
+    top: 20px;
     
 }
 
