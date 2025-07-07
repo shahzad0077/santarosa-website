@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/footer.css">
     <!-- fonts cdn's -->
     <!-- feild-gothic-test cdn's -->
-    <link href="https://fonts.cdnfonts.com/css/field-gothic-test" rel="stylesheet">
+    <!-- <link href="https://fonts.cdnfonts.com/css/field-gothic-test" rel="stylesheet"> -->
     <!-- raleway cdn's -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +26,10 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
- <div class="main-bg">
+ <div class="main-bg-2">
     <!-- Sidebar (Mobile) -->
   <div class="sidebar" id="sidebar">
     <button class="close-btn" onclick="toggleSidebar()">×</button>
@@ -53,7 +54,12 @@
 
 
                     <div class="menu">
-                        <a class="active linear-border-active" href="#">
+                        <a class="linear-border-light" href="./index.html">Home </a>
+                        <a class="linear-border-light" href="#">Services</a>
+                        <a class="linear-border-light" href="#">Recent Projects</a>
+                        <a class="linear-border-light" href="#">Upload Doc</a>
+                        
+                                                <a class="active linear-border-active" href="./contactus.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                 <g clip-path="url(#clip0_474_26)">
                                     <path
@@ -67,12 +73,8 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <span>Home</span>
+                            <span>Contact Us</span>
                         </a>
-                        <a class="linear-border-light" href="#">Services</a>
-                        <a class="linear-border-light" href="#">Recent Projects</a>
-                        <a class="linear-border-light" href="#">Upload Doc</a>
-                        <a class="linear-border-light" href="#">Contact Us</a>
                     </div>
 
 
@@ -93,9 +95,10 @@
   <section class="main">
     <div class="container">
         <div class="main-wrapper">
-            <div class="row">
+            <div class="row" >
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <h2 class="custom-h2">Hi, how’re you doing today? <span>Let’s talk now.</span></h2>
+                <h2 class="custom-h2" data-aos="fade-up"
+     data-aos-duration="3000">Questions about our services?  <span>Contact Us!</span></h2>
                 <div class="pages-navigation">
                     <span><a href="">Home</a></span>
                     <span>\</span>
@@ -105,7 +108,8 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="contact-form-wrapper">
+                <div class="contact-form-wrapper" data-aos="fade-up"
+     data-aos-duration="3000">
                     <div class="form-wrapper">
                         <form action="">
                            <div class="input-wrapper">
@@ -121,7 +125,16 @@
                             <div class="input-wrapper">
                              <div class="input-div">
                                 <input type="text" placeholder="Your phone"> 
-                                <i class="fa-solid fa-phone"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+                                    <g clip-path="url(#clip0_594_77)">
+                                        <path d="M20.035 2.70037C20.614 2.81618 21 3.27941 21 3.85846C21 13.625 13.0478 21.5 3.31987 21.5C2.74082 21.5 2.27759 21.114 2.16178 20.5735L1.23531 16.6747C1.1195 16.1341 1.42832 15.5551 1.93016 15.3235L6.13788 13.5091C6.63972 13.3162 7.21877 13.432 7.52759 13.8566L9.22612 15.9412C11.9283 14.6287 14.09 12.4669 15.4026 9.76471L13.318 8.06618C12.8934 7.75735 12.7777 7.17831 12.9706 6.67647L14.785 2.46875C15.0165 1.92831 15.5956 1.65809 16.1747 1.7739L20.035 2.70037ZM3.35847 20.2647C12.3915 20.2647 19.7262 12.9301 19.7262 3.89706L15.9044 3.00919L14.1287 7.13971L16.9468 9.45588C15.0552 13.432 12.8934 15.5938 8.91729 17.4853L6.60112 14.6673L2.4706 16.443L3.35847 20.2647Z" fill="black"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_594_77">
+                                        <rect width="21" height="21" fill="white" transform="translate(0 0.5)"/>
+                                        </clipPath>
+                                    </defs>
+                                    </svg>
                             </div>
                             <div class="input-div">
                                 <select>
@@ -134,7 +147,15 @@
                            </div>
                            <textarea name="" id="" placeholder="Send Your Message"></textarea>
                            <div>
-                            <button class="custom-primary-btn"><span>Send Your Message</span><i class="fa-solid fa-arrow-right"></i> </button>
+                                                <div class="custom-main-btn-wrapper">
+                        <div class="custom-main-btn">
+                            <button>
+                                <span>Submit</span>
+                                <img src="assets/images/indexImages/arrow-right.png" alt="" />
+                            </button>
+                            <style></style>
+                        </div>
+                    </div>
                            </div>
                         </form>
                     </div>
@@ -151,23 +172,50 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 ">
-                <div class="contact-cards-wraper">
+                <div class="contact-cards-wraper"  data-aos="fade-up"
+     data-aos-duration="3000">
                     <div class="contact-card">
-                        <img src="assets/images/phone.png" alt="">
+                        <div class="contact-card-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                            <g clip-path="url(#clip0_180_994)">
+                                <path d="M28.6214 3.71204C29.4485 3.87748 30 4.53925 30 5.36645C30 19.3187 18.6397 30.5687 4.74265 30.5687C3.91545 30.5687 3.25368 30.0172 3.08824 29.2451L1.76471 23.6754C1.59927 22.9031 2.04045 22.076 2.75736 21.7451L8.76839 19.1531C9.4853 18.8775 10.3125 19.043 10.7537 19.6495L13.1802 22.6275C17.0404 20.7525 20.1286 17.6642 22.0038 13.804L19.0257 11.3775C18.4191 10.9363 18.2538 10.1091 18.5294 9.39219L21.1214 3.38116C21.4521 2.6091 22.2794 2.22307 23.1067 2.38851L28.6214 3.71204ZM4.7978 28.804C17.7021 28.804 28.1802 18.326 28.1802 5.4216L22.7206 4.15322L20.1838 10.054L24.2097 13.3628C21.5074 19.043 18.4191 22.1312 12.739 24.8334L9.43015 20.8077L3.52942 23.3443L4.7978 28.804Z" fill="black"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_180_994">
+                                <rect width="30" height="30" fill="white" transform="translate(0 0.568604)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        </div>
                         <div class="contact-card-details">
                             <span>Call Us</span>
                             <a href="tel:(707)495-0090">(707)495-0090</a>
                         </div>
                     </div>
                     <div class="contact-card">
-                        <img src="assets/images/email.png" alt="">
+                        <div class="contact-card-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                            <g clip-path="url(#clip0_180_941)">
+                                <path d="M20.4491 3.67407C22.4415 5.2561 26.8359 8.83032 28.9453 10.5295C29.5898 11.0569 30 11.8186 30 12.6975V27.7561C30 29.3382 28.7109 30.5686 27.1875 30.5686H2.8125C1.23047 30.5686 0 29.3382 0 27.7561V12.6975C0 11.8186 0.351562 11.0569 0.996094 10.5295C3.10547 8.83032 7.5 5.2561 9.49219 3.67407C10.7812 2.61938 12.832 0.568604 15 0.568604C17.1094 0.568604 19.2188 2.67798 20.4491 3.67407ZM27.1875 28.6936C27.6562 28.6936 28.125 28.2834 28.125 27.7561V12.6975C28.125 12.4045 27.9491 12.1116 27.7734 11.9358C26.1915 10.7053 20.625 6.1936 19.2773 5.13892C18.2227 4.3186 16.3477 2.4436 15 2.4436C13.5938 2.4436 11.7188 4.3186 10.6641 5.13892C9.31641 6.1936 3.75 10.7053 2.16797 11.9358C1.99219 12.1116 1.875 12.4045 1.875 12.6975V27.7561C1.875 28.2834 2.28516 28.6936 2.8125 28.6936H27.1875ZM26.6602 16.0374C26.8946 16.3303 26.8359 16.7991 26.5429 17.0334C25.1953 18.1467 23.3203 19.6115 20.4491 21.8967C19.2188 22.8927 17.1094 25.0021 14.9414 24.9436C12.832 25.0021 10.7227 22.8927 9.49219 21.8967C6.62109 19.6115 4.74609 18.1467 3.39844 17.0334C3.10547 16.7991 3.04688 16.3303 3.28125 16.0374L3.57422 15.6858C3.80859 15.3928 4.27734 15.3342 4.57031 15.5686C5.91797 16.6819 7.79297 18.1467 10.6641 20.432C11.6602 21.2521 13.5938 23.1271 15 23.0686C16.3477 23.1271 18.2812 21.2521 19.2773 20.432C22.1484 18.1467 24.0234 16.6819 25.371 15.5686C25.6641 15.3342 26.1328 15.3928 26.3672 15.6858L26.6602 16.0374Z" fill="black"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_180_941">
+                                <rect width="30" height="30" fill="white" transform="translate(0 0.568604)"/>
+                                </clipPath>
+                            </defs>
+                            </svg>
+                        </div>
                         <div class="contact-card-details">
                             <span>Email us</span>
                             <a href="mailto:SantaRosaSolar1@gmail.com">SantaRosaSolar1@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-card">
-                        <img src="assets/images/location.png" alt="">
+                        <div class="contact-card-svg">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.0625 13.2477C4.0625 7.12394 8.94377 2.1311 15 2.1311C21.0562 2.1311 25.9375 7.12394 25.9375 13.2477C25.9375 16.2041 25.095 19.3785 23.6056 22.1209C22.118 24.86 19.9445 27.2401 17.2256 28.511C15.8132 29.1711 14.1868 29.1711 12.7744 28.511C10.0555 27.2401 7.88202 24.86 6.39444 22.1209C4.90504 19.3785 4.0625 16.2041 4.0625 13.2477ZM15 4.0061C10.0105 4.0061 5.9375 8.12796 5.9375 13.2477C5.9375 15.8691 6.69079 18.7379 8.04213 21.2261C9.3953 23.7177 11.3075 25.7556 13.5683 26.8124C14.4776 27.2374 15.5224 27.2374 16.4317 26.8124C18.6925 25.7556 20.6047 23.7177 21.9579 21.2261C23.3092 18.7379 24.0625 15.8691 24.0625 13.2477C24.0625 8.12796 19.9895 4.0061 15 4.0061ZM15 10.2561C13.4467 10.2561 12.1875 11.5153 12.1875 13.0686C12.1875 14.6219 13.4467 15.8811 15 15.8811C16.5533 15.8811 17.8125 14.6219 17.8125 13.0686C17.8125 11.5153 16.5533 10.2561 15 10.2561ZM10.3125 13.0686C10.3125 10.4798 12.4112 8.3811 15 8.3811C17.5888 8.3811 19.6875 10.4798 19.6875 13.0686C19.6875 15.6574 17.5888 17.7561 15 17.7561C12.4112 17.7561 10.3125 15.6574 10.3125 13.0686Z" fill="black"/>
+                            </svg>
+                        </div>
                         <div class="contact-card-details">
                             <span>Our Location</span>
                             <a href="">1791 Marlow Road,Santa Rosa, 95407</a>
@@ -184,17 +232,18 @@
     </div>
  </section>
  </div>
- 
+ <!-- <div class="overly"></div> -->
  <footer>
     <div class="footer-container">
       <div class="footer-inner">
-         <div class="contact-footer-wrapper">
+         <div class="contact-footer-wrapper" data-aos="fade-up"
+     data-aos-duration="3000">
         <!-- <img class="contact-footer-bg" src="assets/images/contact-footer.png" alt=""> -->
          <div class="row">
             <div class="col-lg-12">
                <div class="contact-footer-inner">
                      <div class="contact-footer-right">
-                    <h3 class="custom-h3">Our Experts are available to answer your all questions</h3>
+                    <h3 class="custom-h3">We are a small family owned business and always available to answer your questions</h3>
                     <span>Providing Value To Our Clients Through Transparent Client Service & Innovation.</span>
                     <div class="custom-secondry-btn-wrapper">
                         <div class="custom-secondry-btn">
@@ -207,7 +256,9 @@
                 </div>
                 <div class="contact-footer-left">
                     <div class="contact-footer-number">
-                        <img src="assets/images/call.png" alt="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                            <path d="M21.8125 29.2218C20.4 29.2218 18.9125 28.8843 17.375 28.2343C15.875 27.5968 14.3625 26.7218 12.8875 25.6593C11.425 24.5843 10.0125 23.3843 8.675 22.0718C7.35 20.7343 6.15 19.3218 5.0875 17.8718C4.0125 16.3718 3.15 14.8718 2.5375 13.4218C1.8875 11.8718 1.5625 10.3718 1.5625 8.9593C1.5625 7.9843 1.7375 7.0593 2.075 6.1968C2.425 5.3093 2.9875 4.4843 3.75 3.7718C4.7125 2.8218 5.8125 2.3468 6.9875 2.3468C7.475 2.3468 7.975 2.4593 8.4 2.6593C8.8875 2.8843 9.3 3.2218 9.6 3.6718L12.5 7.7593C12.7625 8.1218 12.9625 8.4718 13.1 8.8218C13.2625 9.1968 13.35 9.5718 13.35 9.9343C13.35 10.4093 13.2125 10.8718 12.95 11.3093C12.7625 11.6468 12.475 12.0093 12.1125 12.3718L11.2625 13.2593C11.275 13.2968 11.2875 13.3218 11.3 13.3468C11.45 13.6093 11.75 14.0593 12.325 14.7343C12.9375 15.4343 13.5125 16.0718 14.0875 16.6593C14.825 17.3843 15.4375 17.9593 16.0125 18.4343C16.725 19.0343 17.1875 19.3343 17.4625 19.4718L17.4375 19.5343L18.35 18.6343C18.7375 18.2468 19.1125 17.9593 19.475 17.7718C20.1625 17.3468 21.0375 17.2718 21.9125 17.6343C22.2375 17.7718 22.5875 17.9593 22.9625 18.2218L27.1125 21.1718C27.575 21.4843 27.9125 21.8843 28.1125 22.3593C28.3 22.8343 28.3875 23.2718 28.3875 23.7093C28.3875 24.3093 28.25 24.9093 27.9875 25.4718C27.725 26.0343 27.4 26.5218 26.9875 26.9718C26.275 27.7593 25.5 28.3218 24.6 28.6843C23.7375 29.0343 22.8 29.2218 21.8125 29.2218ZM6.9875 4.2218C6.3 4.2218 5.6625 4.5218 5.05 5.1218C4.475 5.6593 4.075 6.2468 3.825 6.8843C3.5625 7.5343 3.4375 8.2218 3.4375 8.9593C3.4375 10.1218 3.7125 11.3843 4.2625 12.6843C4.825 14.0093 5.6125 15.3843 6.6125 16.7593C7.6125 18.1343 8.75 19.4718 10 20.7343C11.25 21.9718 12.6 23.1218 13.9875 24.1343C15.3375 25.1218 16.725 25.9218 18.1 26.4968C20.2375 27.4093 22.2375 27.6218 23.8875 26.9343C24.525 26.6718 25.0875 26.2718 25.6 25.6968C25.8875 25.3843 26.1125 25.0468 26.3 24.6468C26.45 24.3343 26.525 24.0093 26.525 23.6843C26.525 23.4843 26.4875 23.2843 26.3875 23.0593C26.35 22.9843 26.275 22.8468 26.0375 22.6843L21.8875 19.7343C21.6375 19.5593 21.4125 19.4343 21.2 19.3468C20.925 19.2343 20.8125 19.1218 20.3875 19.3843C20.1375 19.5093 19.9125 19.6968 19.6625 19.9468L18.7125 20.8843C18.225 21.3593 17.475 21.4718 16.9 21.2593L16.5625 21.1093C16.05 20.8343 15.45 20.4093 14.7875 19.8468C14.1875 19.3343 13.5375 18.7343 12.75 17.9593C12.1375 17.3343 11.525 16.6718 10.8875 15.9343C10.3 15.2468 9.875 14.6593 9.6125 14.1718L9.4625 13.7968C9.3875 13.5093 9.3625 13.3468 9.3625 13.1718C9.3625 12.7218 9.525 12.3218 9.8375 12.0093L10.775 11.0343C11.025 10.7843 11.2125 10.5468 11.3375 10.3343C11.4375 10.1718 11.475 10.0343 11.475 9.9093C11.475 9.8093 11.4375 9.6593 11.375 9.5093C11.2875 9.3093 11.15 9.0843 10.975 8.8468L8.075 4.7468C7.95 4.5718 7.8 4.4468 7.6125 4.3593C7.4125 4.2718 7.2 4.2218 6.9875 4.2218ZM17.4375 19.5468L17.2375 20.3968L17.575 19.5218C17.5125 19.5093 17.4625 19.5218 17.4375 19.5468Z" fill="black"/>
+                            </svg>
                         <div class="number-details">
                             <span>Talk to an Expert</span>
                             <a href="">(707)495-0090</a>
@@ -276,7 +327,7 @@
 
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- script tags goes here -->
     <script src="assets/js/main.js"></script>
     <!-- bootstrap script goes here -->

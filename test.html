@@ -1,143 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Footer Dropdown</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Tabs</title>
+    <style>
+        :root {
+            --primary-color: #2c7be5;
+            --border-color: #2c7be5;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+        }
 
-  <!-- Font Awesome for chevron icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+        body {
+            background-color: var(--light-gray);
+            padding: 40px 20px;
+        }
 
-    .footer-links-wrapper {
-      display: flex;
-      justify-content: space-between;
-      padding: 40px 20px;
-      background: #0D2D44;
-      color: white;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
+        .accordion-tabs {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-    .footer-links {
-      flex: 1;
-      min-width: 200px;
-    }
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+        }
 
-    .footer-links h6 {
-      margin-bottom: 12px;
-      font-size: 18px;
-      cursor: default;
-    }
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
 
-    .footer-links a {
-      display: block;
-      color: #ccc;
-      text-decoration: none;
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
+        .accordion-btn {
+            width: 100%;
+            padding: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-    /* Mobile styles */
-    @media (max-width: 600px) {
-      .footer-links-wrapper {
-        flex-direction: column;
-        padding: 20px;
-      }
+        .accordion-btn:hover {
+            background-color: rgba(44, 123, 229, 0.05);
+        }
 
-      .footer-links {
-        padding: 10px 0;
-      }
+        .accordion-btn.active {
+            color: var(--primary-color);
+            background-color: rgba(44, 123, 229, 0.05);
+        }
 
-      .footer-links h6 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-      }
+        .accordion-btn.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: var(--border-color);
+        }
 
-      .footer-links a {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        margin-bottom: 0;
-        opacity: 0;
-        pointer-events: none;
-      }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
 
-      .footer-links.open a {
-        max-height: 100px;
-        margin-bottom: 8px;
-        opacity: 1;
-        pointer-events: auto;
-      }
+        .accordion-btn.active .accordion-icon {
+            transform: rotate(180deg);
+        }
 
-      .footer-links h6 i {
-        font-size: 16px;
-        transition: transform 0.3s ease;
-      }
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
 
-      .footer-links.open h6 i {
-        transform: rotate(180deg);
-      }
-    }
-  </style>
+        .accordion-content.active {
+            padding: 0 20px 20px 24px; /* Extra left padding to align with text */
+            max-height: 500px;
+        }
+
+        .accordion-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .accordion-content ul {
+            list-style-type: none;
+            margin-top: 10px;
+        }
+
+        .accordion-content li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .accordion-content li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .accordion-btn {
+                padding: 15px;
+            }
+            
+            .accordion-content.active {
+                padding: 0 15px 15px 19px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="footer-links-wrapper">
-    <div class="footer-links">
-      <h6>Santa Rosa Solar <i class="fa-solid fa-chevron-down"></i></h6>
-      <a href="">Recent Projects</a>
-      <a href="">Calculate Savings</a>
-      <a href="">FAQ’s</a>
-      <a href="">Blogs</a>
+    <div class="accordion-tabs">
+        <div class="accordion-item">
+            <button class="accordion-btn">
+                CSLB Licensed Installers
+                <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <p>Our Installers are certified to Certificate Code</p>
+                <ul>
+                    <li>CSLB Licensed Installers</li>
+                    <li>Fully certified and insured</li>
+                    <li>State-approved training</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <button class="accordion-btn">
+                Electrical Certification
+                <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <p>Electrical Certification and Siemens Building Certificate</p>
+                <ul>
+                    <li>Certified electrical specialists</li>
+                    <li>Siemens partnership certified</li>
+                    <li>Building code compliant</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <button class="accordion-btn">
+                Premium Brand Certifications
+                <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <p>We are certified installers for premium brands including:</p>
+                <ul>
+                    <li>REC</li>
+                    <li>Qcells</li>
+                    <li>Tesla</li>
+                    <li>Enphase</li>
+                    <li>Solar Edge</li>
+                    <li>Franklin</li>
+                    <li>Other premium brands</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="footer-links">
-      <h6>Our Company <i class="fa-solid fa-chevron-down"></i></h6>
-      <a href="">About Us</a>
-      <a href="">Terms & Conditions</a>
-      <a href="">Privacy Policy</a>
-    </div>
-    <div class="footer-links">
-      <h6>Contact Us <i class="fa-solid fa-chevron-down"></i></h6>
-      <a href="">(707)495-0090</a>
-      <a href="">SantaRosaSolar1@gmail.com</a>
-      <a href="">1791 Marlow Road, Santa Rosa, 95407</a>
-    </div>
-  </div>
 
-  <script>
-    function handleDropdowns() {
-      const isMobile = window.innerWidth <= 600;
-      const sections = document.querySelectorAll('.footer-links');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionBtns = document.querySelectorAll('.accordion-btn');
 
-      sections.forEach(section => {
-        const title = section.querySelector('h6');
-        const icon = section.querySelector('i');
+            accordionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Toggle current item
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
 
-        // Remove any previous click
-        title.onclick = null;
-
-        if (isMobile) {
-          title.onclick = () => {
-            section.classList.toggle('open');
-          };
-        } else {
-          section.classList.remove('open');
-        }
-      });
-    }
-
-    window.addEventListener('load', handleDropdowns);
-    window.addEventListener('resize', handleDropdowns);
-  </script>
-
+                    // Close other items if needed
+                    accordionBtns.forEach(otherBtn => {
+                        if (otherBtn !== this) {
+                            otherBtn.classList.remove('active');
+                            otherBtn.nextElementSibling.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
