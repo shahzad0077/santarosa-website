@@ -290,4 +290,7 @@
     .service-tab-content p{
         width: 100%;
     }
+    .process-card {
+        height: 330px;
+    }
 }
