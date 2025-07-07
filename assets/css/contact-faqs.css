@@ -28,8 +28,8 @@ position: absolute;
     width: 100%;
     background: var(--primary-200);
     filter: blur(35px);
-    height: 300px;
-    top: -100px;
+    height: 200px;
+    top: 100px;
     
 }
 

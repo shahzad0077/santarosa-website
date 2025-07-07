@@ -173,6 +173,8 @@ line-height: normal;
         align-items: start !important;
     }
     .contact-footer-number{
+        width: 100%;
+        min-width: 300px;
         padding: 14px 24px !important;
     }
     .custom-secondry-btn-wrapper {
@@ -222,6 +224,15 @@ line-height: normal;
     }
         .footer-inner-content {
         gap: 0px !important;
+    }
+     .contact-footer-number {
+        padding: 14px 15px !important;
+    }
+    .number-details a{
+        font-size: 18px;
+    }
+    .contact-footer-right span{
+        font-size: 16px;
     }
 }
 
