@@ -58,6 +58,11 @@
 }
 .blogs-main-wrapper{
     flex-direction: column;
+    align-items: center;
+}
+.blogs{
+    flex-direction: column;
+    align-items: center;
 }
 
 .blogs-margin{
@@ -73,7 +78,7 @@
     width: 100%;
 }
 .blogs-detail-main-wrapper{
-    margin-top: -100px !important;
+    margin-top: -80px !important;
 }
 .margin-top-minus {
     margin-top: -100px;
@@ -141,6 +146,15 @@
     font-size: 20px;
     line-height: 25px;
 }
+.blogs-detail-main-wrapper {
+        margin-top: -50px !important;
+    }
+        .margin-top-minus {
+        margin-top: -60px;
+    }
+    .project-detail-main-wrapper {
+        margin-top: -60px !important;
+    }
 
 }
 
@@ -183,6 +197,9 @@
 .blog-details-prev span{
     font-size: 20px;
 }
+.blogs-margin {
+    margin-top: -70px;
+}
 .installation-details p{
     font-size: 20px;
 }
@@ -208,7 +225,13 @@
 .projects-card{
     height: 300px;
 }
-    
+
+   .blogs-detail-main-wrapper {
+        margin-top: -50px !important;
+    }
+  .blogs-detail-card-wrapper{
+    padding: 30px;
+  }  
 }
 
 @media (max-width: 600px){
@@ -275,7 +298,7 @@
     padding: 24px;
 }
 .blogs-detail-card-wrapper{
-    padding: 30px;
+    padding: 20px;
 }
 .blog-deatils-column h4{
     font-size: 23px;
@@ -310,9 +333,16 @@
  .blogs-input{
     min-width: 100%;
  }
-
-
+     .blogs-margin {
+        margin-top: -65px;
+    }
+        .blogs-detail-main-wrapper {
+        margin-top: -70px !important;
+    }
 }
+
+
+
 
 @media (max-width: 395px){
     .container {
