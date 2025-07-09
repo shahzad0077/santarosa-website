@@ -131,7 +131,7 @@ height: 44px;
 justify-content: center;
 align-items: center;
 gap: 5px;
-border-radius: 8px;
+border-radius: 100px;
 background: #FFF;
 }
 .prev:hover, .next:hover{
@@ -156,7 +156,7 @@ line-height: normal;
 }
 .pages a{
 padding: 8px 16px;
-border-radius: 8px;
+border-radius: 100px;
 color: #000;
 text-align: center;
 
@@ -390,6 +390,10 @@ height: 44px;
    border-radius: 1000px;
 border: 1px solid var(--Borders-gray, #888);
 }
+.social svg{
+    width: 16px;
+    height: 16px;
+}
 .blog-details-pagination{
    
     border-radius: 20px;
@@ -416,11 +420,11 @@ border: 1px solid var(--Borders-gray, #888);
     display: flex;
 width: 141px;
 height: 60px;
-padding: 20px 28px 20px 10px;
+padding: 20px 40px 20px 20px;
 justify-content: center;
 align-items: center;
 gap: 5px;
-border-radius: 8px;
+border-radius: 100px;
 background: var(--Borders-gray-2, #E7E7E7);
 }
 .blog-details-prev a span{
@@ -458,11 +462,11 @@ line-height: var(--Line-Height-h4, 30px); /* 125% */
     display: flex;
 width: 141px;
 height: 60px;
-padding: 20px 28px 20px 10px;
+padding: 20px 20px 20px 40px;
 justify-content: center;
 align-items: center;
 gap: 5px;
-border-radius: 8px;
+border-radius: 100px;
 background: var(--Borders-gray-2, #E7E7E7);
 }
 .blog-details-next a:hover{
