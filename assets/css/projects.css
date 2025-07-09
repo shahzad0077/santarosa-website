@@ -44,6 +44,13 @@ align-self: stretch;
 /* padding: 20px; */
     border-radius: var(--1440px-md, 20px);
 background: url(../images/projects-card-bg.png) lightgray 50% / cover no-repeat;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.projects-card:hover{
+transform: scale(1.02); /* Zoom in */
+}
+.projects-card a{
+text-decoration: none;
 }
 .project-card-inner{
     display: flex;
@@ -60,6 +67,9 @@ gap: 0px;
 align-self: stretch;
 border-radius: var(--1440px-md, 20px);
 background: var(--Bg-card, #FFF);
+}
+.projects-cars-context:hover{
+    background:#f4f3f3;
 }
 .projects-cars-context h5{
 margin: 0px;

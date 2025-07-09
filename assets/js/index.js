@@ -325,3 +325,9 @@ const video = document.getElementById('customVideo');
         
             window.addEventListener('load', handleDropdowns);
             window.addEventListener('resize', handleDropdowns);
+
+
+
+
+            // test slider
+            

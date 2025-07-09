@@ -40,6 +40,10 @@ gap: var(--gap-space-md);
 border-radius: var(--radius-md);
 border: 1px solid var(--border-white);
 background: var(--Active-Card, linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%));
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-card a:hover{
+    transform: scale(1.02); /* Zoom in */
 }
 .blog-context{
     display: flex;
@@ -129,6 +133,9 @@ align-items: center;
 gap: 5px;
 border-radius: 8px;
 background: #FFF;
+}
+.prev:hover, .next:hover{
+    background: #dedcdc;
 }
 
 .prev span, .next span{
@@ -252,8 +259,8 @@ min-width: 347px;
  gap: var(--gap-xxs);
 }
 .keywords input{
-    width: 28px;
-    height: 28px;
+    width: 18px;
+    height:18px;
 }
 
 .keywords label{
@@ -355,7 +362,7 @@ line-height: var(--Line-Height-md, 28px); /* 155.556% */
  display: flex;
  flex-direction: row;
  align-items: center;
- gap: 40px;
+ gap: 20px;
 }
 .blog-details-social-media span{
     color: var(--Text-Black, #000);
@@ -378,8 +385,8 @@ line-height: var(--Line-Height-md, 28px); /* 127.273% */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 54px;
-height: 54px;
+    width: 44px;
+height: 44px;
    border-radius: 1000px;
 border: 1px solid var(--Borders-gray, #888);
 }
@@ -430,10 +437,13 @@ line-height: var(--Line-Height-md, 28px); /* 127.273% */
     
     color: var(--Text-Black, #000);
 font-family: var(--font-family-primary);
-font-size: 32px;
+font-size: 24px;
 font-style: normal;
 font-weight: var(--Weights-bold, 600);
-line-height: var(--Line-Height-h4, 40px); /* 125% */
+line-height: var(--Line-Height-h4, 30px); /* 125% */
+}
+.blog-details-prev a:hover{
+    background: #c9c8c8;
 }
 
 
@@ -455,6 +465,9 @@ gap: 5px;
 border-radius: 8px;
 background: var(--Borders-gray-2, #E7E7E7);
 }
+.blog-details-next a:hover{
+    background: #c9c8c8;
+}
 .blog-details-next a span{
     color: var(--Text-Black, #000);
 
@@ -469,10 +482,10 @@ line-height: var(--Line-Height-md, 28px); /* 127.273% */
     text-align: end;
     color: var(--Text-Black, #000);
 font-family: var(--font-family-primary);
-font-size: 32px;
+font-size: 24px;
 font-style: normal;
 font-weight: var(--Weights-bold, 600);
-line-height: var(--Line-Height-h4, 40px); /* 125% */
+line-height: var(--Line-Height-h4, 30px); /* 125% */
 }
 
 

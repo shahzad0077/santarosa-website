@@ -61,7 +61,7 @@ text-decoration: none;
 transition: color 0.3s ease;
 }
 .service-card-btn a:hover{
-transform: translateX(5px);
+text-decoration: underline;
 }
 .service-card-btn a span{
 color: var(--Bg-bg---footer, #0D2D44);
@@ -246,4 +246,61 @@ font-size: 20px;
 font-style: normal;
 font-weight: var(--Weights-medium, 500);
 line-height: 32px; /* 145.455% */
+}
+
+/* responsive */
+@media (max-width: 1025px){
+.service-margin{
+    margin-top: 0px;
+}
+.service-choose-heading h3{
+    font-size: 40px;
+}
+}
+
+@media (max-width: 965px){
+.service-choose-wrapper{
+    flex-direction: column;
+}
+.service-detail-col{
+    flex-direction: column;
+}
+}
+@media (max-width: 600px){
+.services-card-wrapper{
+    flex-direction: column;
+}
+.service-card{
+    width: 100%;
+}
+.service-detailcol-img img{
+    width: 100%;
+}
+.service-detail-col-content h5{
+    font-size: 25px;
+    line-height: 35px;
+}
+.points span{
+    font-size: 16px;
+    line-height: 25px;
+}
+}
+@media (max-width: 480px){
+.service-img{
+    display: none;
+}
+.service-point-icon{
+    width: 65px;
+    height: 65px;
+    padding: 15px;
+}
+.service-point{
+    align-items: start;
+}
+}
+@media (max-width: 480px){
+.service-choose-heading h3{
+    font-size: 30px;
+    line-height: 40px;
+}
 }

@@ -55,6 +55,22 @@ AOS.init();
     window.addEventListener('load', handleDropdowns);
     window.addEventListener('resize', handleDropdowns);
 
+
+    const dropdown = document.getElementById('dropdown');
+const selected = dropdown.querySelector('.selected');
+const options = dropdown.querySelectorAll('.option');
+
+selected.addEventListener('click', () => {
+  dropdown.classList.toggle('open');
+});
+
+options.forEach(option => {
+  option.addEventListener('click', () => {
+    selected.textContent = option.textContent;
+    dropdown.classList.remove('open');
+  });
+});
+
     // slider
     
   const prevBtn = document.querySelector('.prev');
@@ -85,4 +101,6 @@ AOS.init();
 
   window.addEventListener('resize', updateSlider);
   updateSlider();
+
+// test slider
 
