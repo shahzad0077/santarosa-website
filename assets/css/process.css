@@ -352,11 +352,57 @@ iframe {
 }
 
 
+/* congrats page */
+.congrats-wrapper{
+  display: flex;
+width: 804px;
+padding: var(--Cards-md-x, 40px);
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 30px;
+border-radius: var(--1440px-md, 20px);
+background: var(--Borders-white, #FFF);
+backdrop-filter: blur(137px);
+margin: 0 auto;
+}
+.congrats-text{
+  display:flex;
+  flex-direction: column;
+  gap:17px;
+  width: 568px;
+}
+.congrats-text h4{
+  margin: 0px;
+  color: var(--Text-Black, #000);
+text-align: center;
+font-family: var(--font-family-primary);
+font-size: var(--Sizes-h4, 35px);
+font-style: normal;
+font-weight: 700;
+line-height: var(--Line-Height-h4, 40px); /* 114.286% */
+
+}
+.congrats-text p{
+  margin: 0px;
+  color: var(--gray-900);
+text-align: center;
+font-family: var(--font-family-primary);
+font-size: 18px;
+font-style: normal;
+font-weight: var(--Weights-medium, 500);
+line-height: normal;
+}
+
+
 /* responsive */
 
 @media (max-width: 1025px){
   .process-hero{
     height: 91vh;
+  }
+  .congrats-wrapper{
+    margin-top: 150px;
   }
 }
 @media (max-width: 769px){
@@ -369,6 +415,9 @@ iframe {
   }
   .input-wrapper{
     flex-direction: column;
+  }
+  .congrats-wrapper{
+   width: 100%;
   }
 }
 @media (max-width: 600px){
@@ -407,5 +456,22 @@ iframe {
   width: 100%;
   min-width: 200px !important;
   max-width: 300px;
+}
+.congrats-wrapper{
+  margin-top: 0px;
+}
+.congrats-text{
+  width: 100%;
+}
+.congrats{
+  height: auto;
+}
+.congrats-text h4{
+  font-size: 28px;
+  line-height: 30px;
+}
+.congrats-text p{
+  font-size: 16px;
+  line-height: 24px;
 }
 }
