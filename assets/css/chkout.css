@@ -1,0 +1,278 @@
+@import url(custom.css);
+
+.chkout-wrapper{
+    display: flex;
+width: 804px;
+padding: var(--Cards-md-x, 40px);
+flex-direction: column;
+align-items: flex-start;
+gap: 40px;
+border-radius: var(--1440px-md, 20px);
+background: var(--Borders-white, #FFF);
+backdrop-filter: blur(137px);
+margin: 0 auto;
+}
+.chkout-head{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.chkout-head a{
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-xs);
+    align-items: center;
+    text-decoration: none;
+}
+.chkout-head a span{
+    color: var(--gray-900);
+text-align: center;
+font-family: var(--font-family-primary);
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.chkout-heading{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.chkout-heading h4{
+    margin: 0px;
+    color: var(--Text-Black, #000);
+font-family: var(--font-family-primary);
+font-size: var(--Sizes-h4, 35px);
+font-style: normal;
+font-weight: 700;
+line-height: var(--Line-Height-h4, 40px); /* 114.286% */
+}
+.chkout-heading p{
+    color: var(--gray-900);
+font-family: var(--font-family-primary);
+font-size: 18px;
+font-style: normal;
+font-weight: var(--Weights-medium, 500);
+line-height: normal;
+}
+.chk-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.chk-form form input{
+
+min-height: 60px;
+padding: 0px 20px;
+align-self: stretch;
+border-radius: var(--1440px-sm, 10px);
+border: 1px solid var(--Borders-gray-2, #E7E7E7);
+background: var(--Text-white, #FFF);
+color: var(--Text-Black, #000);
+outline: none;
+/* 1440/Regullar/rg */
+font-family: var(--font-family-primary);
+font-size: var(--Sizes-rg, 16px);
+font-style: normal;
+font-weight: var(--Weights-medium, 500);
+line-height: 24px; /* 150% */
+}
+.chk-form form input::placeholder{
+    color: var(--Text-disabled, #888);
+
+/* 1440/Regullar/rg */
+font-family: var(--font-family-primary);
+font-size: var(--Sizes-rg, 16px);
+font-style: normal;
+font-weight: var(--Weights-medium, 500);
+line-height: 24px; /* 150% */
+}
+.chk-input-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.chk-input-wrapper input{
+    width: 352px;
+}
+.chk-input-wrapper-2{
+   display: flex;
+    flex-direction: row;
+    gap: 20px; 
+}
+.chk-input-wrapper-2 input{
+    width: 228px;
+}
+
+.dropdown.state-dropdown {
+      position: relative;
+      width: 225px;
+      user-select: none;
+      appearance: none;
+    }
+
+    .dropdown.state-dropdown .dropdown-toggle {
+      min-height: 60px;
+padding: 15px 20px;
+align-self: stretch;
+border-radius: var(--1440px-sm, 10px);
+border: 1px solid var(--Borders-gray-2, #E7E7E7);
+background: var(--Text-white, #FFF);
+    }
+
+    .dropdown.state-dropdown .dropdown-toggle svg {
+      transition: transform 0.3s ease;
+    }
+    .dropdown.state-dropdown .dropdown-toggle span{
+        color: var(--Text-disabled, #888);
+
+/* 1440/Regullar/rg */
+font-family: var(--font-family-primary);
+font-size: var(--Sizes-rg, 16px);
+font-style: normal;
+font-weight: var(--Weights-medium, 500);
+line-height: 24px; /* 150% */
+    }
+.dropdown-toggle {
+    appearance: none;
+}
+    .dropdown.state-dropdown.active .dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    .dropdown.state-dropdown .dropdown-menu {
+      position: absolute;
+      top: 105%;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      z-index: 10;
+      display: none;
+    }
+
+    .dropdown.state-dropdown.active .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown.state-dropdown .dropdown-menu li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .dropdown.state-dropdown .dropdown-menu li:hover {
+      background-color: #f1f1f1;
+    }
+    .terms{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap:var(--gap-xs);
+    }
+    .terms input{
+        width: 16px;
+height: 16px;
+aspect-ratio: 1/1;
+border-radius: 6px;
+border: 1px solid var(--Borders-gray-2, #E7E7E7);
+background: var(--Text-white, #FFF);
+    }
+    .terms span{
+        color: var(--Text-Black, #000);
+font-family: var(--font-family-primary);
+font-size: 14px;
+font-style: normal;
+font-weight: var(--Weights-medium, 500);
+line-height: 24px; /* 171.429% */
+    }
+    .dues{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .dues h6{
+        margin: 0px;
+        color: var(--Text-Black, #000);
+
+/* 1440/Regullar/md */
+font-family: var(--font-family-primary);
+font-size: var(--Sizes-md, 18px);
+font-style: normal;
+font-weight: var(--Weights-bold, 600);
+line-height: var(--Line-Height-md, 28px); /* 155.556% */
+    }
+    .dues p{
+        margin: 0px;
+        color: var(--Text-Black, #000);
+
+/* 1440/Regullar/md */
+font-family: var(--font-family-primary);
+font-size: var(--Sizes-md, 18px);
+font-style: normal;
+font-weight: var(--Weights-bold, 600);
+line-height: var(--Line-Height-md, 28px);
+    }
+    .dues p span{
+        margin-right: 10px;
+        text-decoration: line-through;
+        color: #888;
+    }
+    .chkout-btn{
+        width: 100%;
+        display: flex;
+       flex-direction: column;
+       justify-content: end;
+       align-items: end;
+    }
+
+
+
+@media (max-width: 1025px){
+    .chkout-main{
+        height: 91vh;
+    }
+}
+@media (max-width: 769px){
+    .chkout-wrapper{
+        width: 100%;
+    }
+    .chk-input-wrapper input{
+        width: 100%;
+    }
+    .chk-input-wrapper-2 input{
+        width: 100%;
+    }
+    .dropdown.state-dropdown{
+        width: 100%;
+    }
+} 
+@media (max-width: 600px){
+  .chkout-main{
+        height: auto;
+    }
+    .chk-form form input{
+        min-height: 50px;
+    }
+    .dropdown.state-dropdown{
+        width: 100%;
+        min-height: 50px;
+    }
+}  
+
+@media (max-width: 480px){
+    .chkout-wrapper{
+        padding: 30px;
+    }
+    .chk-input-wrapper{
+        flex-direction: column;
+    }
+    .chk-input-wrapper-2{
+        flex-direction: column;
+    }
+    .chk-form form input{
+        width: 290px;
+    }
+}
