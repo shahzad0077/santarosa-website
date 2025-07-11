@@ -11,6 +11,9 @@
   width: 658px;
   margin: 0 auto;
 }
+.location-wrapper{
+  width: 400px;
+}
 
 .input-container {
   display: flex;
@@ -76,7 +79,7 @@
   border-top: none;
   position: absolute;
   display: flex;
-  width: 100%;
+  width: 480px;
   /* padding: 14px; */
   flex-direction: column;
   align-items: flex-start;
@@ -214,6 +217,7 @@ iframe {
   flex-direction: column;
   align-items: end;
   justify-content: end;
+  width: 100%;
 }
 .input-wrapper {
   display: flex;
@@ -421,6 +425,9 @@ line-height: normal;
   }
 }
 @media (max-width: 600px){
+ .process-hero{
+  height: 100vh;
+ }
  .search-wrapper{
   flex-direction: column;
   gap: var(--gap-xs);
@@ -473,5 +480,13 @@ line-height: normal;
 .congrats-text p{
   font-size: 16px;
   line-height: 24px;
+}
+.suggestions{
+width: 400px;
+}
+}
+@media (max-width: 395px){
+.suggestions{
+width: 100%;
 }
 }
