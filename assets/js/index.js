@@ -331,3 +331,14 @@ const video = document.getElementById('customVideo');
 
             // test slider
             
+  document.addEventListener('DOMContentLoaded', () => {
+    const headings = document.querySelectorAll('.footer-heading');
+
+    headings.forEach(heading => {
+      heading.addEventListener('click', () => {
+        const parent = heading.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+  });
+
