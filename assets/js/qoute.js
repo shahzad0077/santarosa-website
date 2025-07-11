@@ -85,3 +85,102 @@ let count = 20;
     options.forEach(opt => opt.classList.remove("selected"));
     selected.classList.add("selected");
   }
+
+
+
+
+
+   document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const selected = dropdown.querySelector('.dropdown-selected');
+      const list = dropdown.querySelector('.dropdown-list');
+      const items = dropdown.querySelectorAll('.dropdown-item');
+      const input = dropdown.querySelector('input[type="hidden"]');
+      const badge = dropdown.querySelector('.badge');
+
+      // Toggle dropdown
+      dropdown.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeAllDropdowns(dropdown);
+        dropdown.classList.toggle('active');
+      });
+
+      // Handle item click
+      items.forEach(item => {
+        item.addEventListener('click', function () {
+          const value = this.getAttribute('data-value');
+          const label = this.querySelector('span').textContent;
+
+          selected.textContent = label;
+          input.value = value;
+
+          const itemBadge = this.querySelector('.badge');
+          if (itemBadge) {
+            badge.style.display = 'inline-block';
+            badge.textContent = itemBadge.textContent;
+          } else {
+            badge.style.display = 'none';
+          }
+
+          dropdown.classList.remove('active');
+        });
+      });
+    });
+
+    // Close dropdowns on outside click
+    document.addEventListener('click', function () {
+      closeAllDropdowns();
+    });
+
+    function closeAllDropdowns(current = null) {
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== current) {
+          d.classList.remove('active');
+        }
+      });
+    }
+
+
+
+
+     function initSlider(sliderTrackId, dotsId) {
+      const track = document.getElementById(sliderTrackId);
+      const dotsContainer = document.getElementById(dotsId);
+      const slides = track.querySelectorAll('.slider-item');
+      let currentSlide = 0;
+
+      function renderDots() {
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.classList.add('slider-dot');
+          if (i === currentSlide) dot.classList.add('active');
+          dot.addEventListener('click', () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        Array.from(dotsContainer.children).forEach(dot => dot.classList.remove('active'));
+        dotsContainer.children[index].classList.add('active');
+      }
+
+      function handleResize() {
+        if (window.innerWidth <= 768) {
+          renderDots();
+          goToSlide(currentSlide);
+        } else {
+          track.style.transform = 'translateX(0%)';
+          dotsContainer.innerHTML = '';
+        }
+      }
+
+      window.addEventListener('resize', handleResize);
+      window.addEventListener('load', handleResize);
+    }
+
+    // 🟢 Initialize all 3 sliders
+    initSlider('sliderTrack1', 'sliderDots1');
+    initSlider('sliderTrack2', 'sliderDots2');
+    initSlider('sliderTrack3', 'sliderDots3');
