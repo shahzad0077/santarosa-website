@@ -570,6 +570,12 @@
   .reviews-wrapper {
     flex-direction: column;
   }
+  .we-are-inner-cards-wrapper{
+    flex-direction: row;
+  }
+  .we-are-inner-card{
+    width: 100%;
+  }
 }
 @media (max-width: 600px) {
   .about-top-img img {
@@ -584,7 +590,7 @@
     line-height: 45px;
   }
   .values-heading h2 {
-    font-size: 50px;
+    font-size: 40px;
     line-height: 60px;
   }
   .values-upper p {
@@ -596,14 +602,24 @@
   .value-card {
     width: 100%;
   }
+  .values-lower-left{
+    width: 100%;
+  }
   .leader-card {
-    width: 350px;
-    height: 300;
+    width: 100%;
+    height: 300px;
   }
   .leader-card-content {
     width: 100%;
+    padding: 10px 20px;
   }
   .reviews-tag {
+    flex-direction: column;
+  }
+  .we-are-img img{
+    height: 250px;
+  }
+  .we-are-inner-cards-wrapper{
     flex-direction: column;
   }
 }

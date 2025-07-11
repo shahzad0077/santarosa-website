@@ -158,10 +158,13 @@
 
 @media (max-width: 769px) {
   .container {
-    padding: 0px 40px !important;
+    padding: 0px 20px !important;
   }
   .main h2 {
     width: 100%;
+  }
+  .pages-navigation{
+    padding-top: 10px;
   }
   .solar-img-person {
     width: 100%;

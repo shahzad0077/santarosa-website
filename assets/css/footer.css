@@ -186,6 +186,9 @@ line-height: normal;
 .footer-links-wrapper {
         gap: 50px !important;
     }
+    .footer-inner{
+        padding: 238px 38px 38px 38px;
+    }
 }
 
 @media (max-width: 769px){
