@@ -725,6 +725,86 @@ z-index: -1;
             }
         }
 /* we do section styling started from here  */
+:root {
+  --card-height: 40vw;
+  --card-margin: 4vw;
+  --card-top-offset: 1em;
+  --numcards: 4;
+  --outline-width: 0px;
+}
+#cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--numcards), var(--card-height));
+  gap: var(--card-margin);
+  padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+  margin-bottom: var(--card-margin);
+}
+
+#card-1 {
+  --index: 1;
+}
+
+#card-2 {
+  --index: 2;
+}
+
+#card-3 {
+  --index: 3;
+}
+
+#card-4 {
+  --index: 4;
+}
+
+.sticky-card {
+  position: sticky;
+  top: 0;
+  padding-top: calc(var(--index) * var(--card-top-offset));
+}
+/* Animation */
+@supports (animation-timeline: works) {
+
+  @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets:
+      selector(#cards) start 1,
+      selector(#cards) start 0
+    ;
+    start: selector(#cards) start 1;
+    end: selector(#cards) start 0;
+    time-range: 4s;
+  }
+
+  .sticky-card {
+    --index0: calc(var(--index) - 1);
+    --reverse-index: calc(var(--numcards) - var(--index0));
+    --reverse-index0: calc(var(--reverse-index) - 1);
+  }
+  
+  .card__content {
+    transform-origin: 50% 0%;
+    will-change: transform;
+
+    --duration: calc(var(--reverse-index0) * 1s);
+    --delay: calc(var(--index0) * 1s);
+
+    animation: var(--duration) linear scale var(--delay) forwards;
+    animation-timeline: cards-element-scrolls-in-body;
+  }
+
+  @keyframes scale {
+    to {
+      transform:
+        scale(calc(
+          1.1
+          -
+          calc(0.1 * var(--reverse-index))
+        ));
+    }
+  }
+}
 .we-do-main-wrapper{
     display: flex;
     flex-direction: column;
@@ -737,6 +817,7 @@ z-index: -1;
     display: flex;
     flex-direction: row;
 }
+
 .we-do-card-btn{
  width:100%;
 }
@@ -750,7 +831,7 @@ z-index: -1;
     flex: 1 0 0;
     align-self: stretch;
     border-top: 2px solid var(--Linear-Border, #FFF);
-    background: var(--Active-Card, linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%));
+    background: var(--Active-Card, linear-gradient(180deg, #aee4ff 0%, #FFF 100%));
      
 }
 .we-do-card h3{
@@ -788,6 +869,151 @@ line-height: 24px; /* 150% */
 .installation{
     background: var(--primary-200);
 }
+ .project-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1220px;
+            margin: 0 auto;
+            padding-right: 60px;
+            margin-top: 100px;
+            
+        }
+
+        .project-card-stack {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+
+        .project-card {
+            position: absolute;
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            will-change: transform, opacity;
+        }
+
+        .project-card-title {
+            font-size: 20px;
+            font-weight: 400;
+            color: #aaa;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-card-value {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-card-feature {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .project-card-desc {
+            font-size: 18px;
+            color: #999;
+            margin-top: auto;
+            line-height: 1.6;
+        }
+
+        /* Card positioning */
+        .project-card.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            z-index: 3;
+        }
+
+        .project-card.next {
+            opacity: 0.6;
+            transform: translateY(120px) scale(0.92);
+            z-index: 2;
+        }
+
+        .project-card.prev {
+            opacity: 0.6;
+            transform: translateY(-120px) scale(0.92);
+            z-index: 2;
+        }
+
+        .project-card.far-prev {
+            opacity: 0;
+            transform: translateY(-180px) scale(0.85);
+            z-index: 1;
+        }
+
+        .project-card.far-next {
+            opacity: 0;
+            transform: translateY(180px) scale(0.85);
+            z-index: 1;
+        }
+
+        /* Pagination */
+        .project-pagination {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .project-pagination-dot {
+             width: 5px;
+            height: 8px;
+            border-radius: 40px;
+            background: var(--Text-disabled, #888);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+    
+
+
+        .project-pagination-dot.active {
+            width: 5px;
+            height: 16px;
+            border-radius: 40px;
+            background-color:black;
+        }
+
+        .project-pagination-dot:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Scroll hint */
+        .scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
 
  .install-slider {
             position: relative;

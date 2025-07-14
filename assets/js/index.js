@@ -342,3 +342,95 @@ const video = document.getElementById('customVideo');
     });
   });
 
+
+
+
+     document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectDots = document.querySelectorAll('.project-pagination-dot');
+            let currentIndex = 0;
+            let isScrolling = false;
+            let scrollTimeout;
+
+            // Initialize slider
+            updateSlider();
+
+            // Handle scroll events
+            window.addEventListener('wheel', function(e) {
+                if (isScrolling) return;
+                
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    isScrolling = false;
+                }, 800);
+
+                if (e.deltaY > 0) {
+                    // Scroll down - next card
+                    if (currentIndex < projectCards.length - 1) {
+                        currentIndex++;
+                        isScrolling = true;
+                        updateSlider();
+                    }
+                } else {
+                    // Scroll up - previous card
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        isScrolling = true;
+                        updateSlider();
+                    }
+                }
+            });
+
+            // Handle dot clicks
+            projectDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    updateSlider();
+                });
+            });
+
+            // Auto-advance every 5 seconds
+            setInterval(() => {
+                if (isScrolling) return;
+                currentIndex = (currentIndex + 1) % projectCards.length;
+                updateSlider();
+            }, 5000);
+
+            function updateSlider() {
+                projectCards.forEach((card, index) => {
+                    card.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+                    
+                    const diff = index - currentIndex;
+                    
+                    if (diff === 0) {
+                        card.classList.add('active');
+                    } else if (diff === 1) {
+                        card.classList.add('next');
+                    } else if (diff === -1) {
+                        card.classList.add('prev');
+                    } else if (diff > 1) {
+                        card.classList.add('far-next');
+                    } else if (diff < -1) {
+                        card.classList.add('far-prev');
+                    }
+                });
+
+                projectDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // Make slider visible while scrolling
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    } else {
+                        entry.target.style.opacity = 0.3;
+                    }
+                });
+            }, {threshold: 0.1});
+
+            document.querySelector('.project-slider').style.transition = 'opacity 0.5s ease';
+            observer.observe(document.querySelector('.project-slider'));
+        });

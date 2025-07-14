@@ -1,304 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Location Search with Custom Dropdown</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Card Slider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 30px;
-      background: #f4f4f4;
-    }
+        body {
+            background: #000;
+            color: white;
+            padding: 40px 0;
+        }
 
-    .search-wrapper {
-      position: relative;
-      max-width: 400px;
-      margin: 0 auto;
-    }
+        .project-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-right: 60px;
+        }
 
-    .input-container {
-      position: relative;
-    }
+        .project-card-stack {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
 
-    .input-container input {
-      width: 100%;
-      padding: 10px 80px 10px 40px;
-      border: 1px solid #aaa;
-      border-radius: 30px;
-      font-size: 16px;
-    }
+        .project-card {
+            position: absolute;
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            will-change: transform, opacity;
+        }
 
-    .input-container svg {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      fill: #666;
-    }
+        .project-card-title {
+            font-size: 20px;
+            font-weight: 400;
+            color: #aaa;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    .input-container button {
-      position: absolute;
-      right: 5px;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 8px 15px;
-      border: none;
-      background: #0a2540;
-      color: white;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-    }
+        .project-card-value {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .suggestions {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      border: 1px solid #ccc;
-      border-top: none;
-      position: absolute;
-      width: 100%;
-      background: white;
-      max-height: 150px;
-      overflow-y: auto;
-      z-index: 10;
-      border-radius: 0 0 10px 10px;
-    }
+        .project-card-feature {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
 
-    .suggestions li {
-      padding: 10px;
-      cursor: pointer;
-    }
+        .project-card-desc {
+            font-size: 18px;
+            color: #999;
+            margin-top: auto;
+            line-height: 1.6;
+        }
 
-    .suggestions li:hover {
-      background: #f0f0f0;
-    }
+        /* Card positioning */
+        .project-card.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            z-index: 3;
+        }
 
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-    }
+        .project-card.next {
+            opacity: 0.6;
+            transform: translateY(120px) scale(0.92);
+            z-index: 2;
+        }
 
-    .popup .popup-content {
-      background: white;
-      padding: 20px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 10px;
-      text-align: center;
-      position: relative;
-    }
+        .project-card.prev {
+            opacity: 0.6;
+            transform: translateY(-120px) scale(0.92);
+            z-index: 2;
+        }
 
-    .popup input {
-      margin-top: 10px;
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #aaa;
-    }
+        .project-card.far-prev {
+            opacity: 0;
+            transform: translateY(-180px) scale(0.85);
+            z-index: 1;
+        }
 
-    .popup button {
-      margin-top: 15px;
-      padding: 10px 15px;
-      background: #0a2540;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .project-card.far-next {
+            opacity: 0;
+            transform: translateY(180px) scale(0.85);
+            z-index: 1;
+        }
 
-    .back-btn {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: none;
-      color: black;
-      font-size: 24px;
-      border: none;
-      cursor: pointer;
-    }
+        /* Pagination */
+        .project-pagination {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }
 
-    /* Custom dropdown styles */
-    .custom-dropdown {
-      margin-top: 10px;
-      text-align: left;
-      position: relative;
-      user-select: none;
-    }
+        .project-pagination-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
 
-    .dropdown-selected {
-      padding: 10px;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-      cursor: pointer;
-      background: #fff;
-    }
+        .project-pagination-dot.active {
+            background: white;
+            transform: scale(1.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
 
-    .dropdown-options {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border: 1px solid #aaa;
-      border-top: none;
-      border-radius: 0 0 5px 5px;
-      z-index: 20;
-    }
+        .project-pagination-dot:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.5);
+        }
 
-    .dropdown-options div {
-      padding: 10px;
-      cursor: pointer;
-    }
+        /* Scroll hint */
+        .scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            animation: bounce 2s infinite;
+        }
 
-    .dropdown-options div:hover {
-      background: #f0f0f0;
-    }
-
-    .dropdown-open .dropdown-options {
-      display: block;
-    }
-  </style>
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Search Section -->
-  <div class="search-wrapper">
-    <div class="input-container">
-      <!-- Location SVG -->
-      <svg viewBox="0 0 24 24">
-        <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-      </svg>
-
-      <input type="text" id="locationInput" placeholder="Enter location..." autocomplete="off" />
-      <button id="getPriceBtn">Get Price →</button>
-    </div>
-    <ul class="suggestions" id="suggestionsList"></ul>
-  </div>
-
-  <!-- Popup 1 -->
-  <div class="popup" id="popup1">
-    <div class="popup-content">
-      <button class="back-btn" onclick="closePopup(1)">←</button>
-      <h2>📍 Your Location</h2>
-      <button onclick="nextPopup(2)">Save Location</button>
-    </div>
-  </div>
-
-  <!-- Popup 2 -->
-  <div class="popup" id="popup2">
-    <div class="popup-content">
-      <button class="back-btn" onclick="prevPopup(1)">←</button>
-      <input type="text" placeholder="Additional Info" />
-
-      <!-- Custom dropdown -->
-      <div class="custom-dropdown" id="dropdown">
-        <div class="dropdown-selected" onclick="toggleDropdown()">Select Option</div>
-        <div class="dropdown-options">
-          <div onclick="selectOption(this)">Option A</div>
-          <div onclick="selectOption(this)">Option B</div>
-          <div onclick="selectOption(this)">Option C</div>
+    <div class="project-slider">
+        <div class="project-card-stack">
+            <div class="project-card active">
+                <div class="project-card-title">An efficient, long-lasting battery</div>
+                <div class="project-card-value">4400mAh</div>
+                <div class="project-card-feature">Battery capacity</div>
+                <div class="project-card-desc">All-day power for your busiest days without needing to recharge</div>
+            </div>
+            <div class="project-card next">
+                <div class="project-card-title">Non-stop entertainment</div>
+                <div class="project-card-value">24hrs</div>
+                <div class="project-card-feature">Watch videos up to</div>
+                <div class="project-card-desc">Stream your favorite shows and movies without battery anxiety</div>
+            </div>
+            <div class="project-card far-next">
+                <div class="project-card-title">Immersive viewing</div>
+                <div class="project-card-value">6.8"</div>
+                <div class="project-card-feature">Dynamic AMOLED Display</div>
+                <div class="project-card-desc">See next-gen Galaxy AI on a large, vibrant screen</div>
+            </div>
         </div>
-      </div>
-
-      <button onclick="nextPopup(3)">See Quote</button>
+        
+        <div class="project-pagination">
+            <div class="project-pagination-dot active" data-index="0"></div>
+            <div class="project-pagination-dot" data-index="1"></div>
+            <div class="project-pagination-dot" data-index="2"></div>
+        </div>
     </div>
-  </div>
 
-  <!-- Popup 3 -->
-  <div class="popup" id="popup3">
-    <div class="popup-content">
-      <button class="back-btn" onclick="prevPopup(2)">←</button>
-      <input type="text" placeholder="First Name" />
-      <input type="text" placeholder="Last Name" />
-      <input type="email" placeholder="Email" />
-      <button>Continue</button>
-    </div>
-  </div>
+    <div class="scroll-hint">Scroll to navigate</div>
 
-  <script>
-    const locations = [
-      "Santa Rosa, CA, USA",
-      "Santa Barbara, CA, USA",
-      "Santa Cruz, CA, USA",
-      "Santa Monica, CA, USA",
-      "Santa Clara, CA, USA"
-    ];
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectDots = document.querySelectorAll('.project-pagination-dot');
+            let currentIndex = 0;
+            let isScrolling = false;
+            let scrollTimeout;
 
-    const input = document.getElementById("locationInput");
-    const suggestionsList = document.getElementById("suggestionsList");
+            // Initialize slider
+            updateSlider();
 
-    // Show suggestions on focus or input
-    input.addEventListener("input", showSuggestions);
-    input.addEventListener("focus", showSuggestions);
+            // Handle scroll events
+            window.addEventListener('wheel', function(e) {
+                if (isScrolling) return;
+                
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    isScrolling = false;
+                }, 800);
 
-    function showSuggestions() {
-      const value = input.value.toLowerCase();
-      suggestionsList.innerHTML = "";
+                if (e.deltaY > 0) {
+                    // Scroll down - next card
+                    if (currentIndex < projectCards.length - 1) {
+                        currentIndex++;
+                        isScrolling = true;
+                        updateSlider();
+                    }
+                } else {
+                    // Scroll up - previous card
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        isScrolling = true;
+                        updateSlider();
+                    }
+                }
+            });
 
-      const filtered = locations.filter(loc => loc.toLowerCase().includes(value));
-      filtered.forEach(loc => {
-        const li = document.createElement("li");
-        li.textContent = loc;
-        li.addEventListener("click", () => {
-          input.value = loc;
-          suggestionsList.innerHTML = "";
+            // Handle dot clicks
+            projectDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    updateSlider();
+                });
+            });
+
+            // Auto-advance every 5 seconds
+            setInterval(() => {
+                if (isScrolling) return;
+                currentIndex = (currentIndex + 1) % projectCards.length;
+                updateSlider();
+            }, 5000);
+
+            function updateSlider() {
+                projectCards.forEach((card, index) => {
+                    card.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+                    
+                    const diff = index - currentIndex;
+                    
+                    if (diff === 0) {
+                        card.classList.add('active');
+                    } else if (diff === 1) {
+                        card.classList.add('next');
+                    } else if (diff === -1) {
+                        card.classList.add('prev');
+                    } else if (diff > 1) {
+                        card.classList.add('far-next');
+                    } else if (diff < -1) {
+                        card.classList.add('far-prev');
+                    }
+                });
+
+                projectDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // Make slider visible while scrolling
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    } else {
+                        entry.target.style.opacity = 0.3;
+                    }
+                });
+            }, {threshold: 0.1});
+
+            document.querySelector('.project-slider').style.transition = 'opacity 0.5s ease';
+            observer.observe(document.querySelector('.project-slider'));
         });
-        suggestionsList.appendChild(li);
-      });
-    }
-
-    // Get Price button opens popup 1
-    document.getElementById("getPriceBtn").addEventListener("click", () => {
-      document.getElementById("popup1").style.display = "flex";
-    });
-
-    // Popup logic
-    function closePopup(num) {
-      document.getElementById(`popup${num}`).style.display = "none";
-    }
-
-    function nextPopup(num) {
-      document.querySelectorAll(".popup").forEach(p => p.style.display = "none");
-      document.getElementById(`popup${num}`).style.display = "flex";
-    }
-
-    function prevPopup(num) {
-      nextPopup(num);
-    }
-
-    // Custom dropdown logic
-    function toggleDropdown() {
-      document.getElementById("dropdown").classList.toggle("dropdown-open");
-    }
-
-    function selectOption(el) {
-      const dropdown = document.getElementById("dropdown");
-      dropdown.querySelector(".dropdown-selected").textContent = el.textContent;
-      dropdown.classList.remove("dropdown-open");
-    }
-
-    // Close dropdown if clicked outside
-    window.addEventListener("click", function (e) {
-      if (!document.getElementById("dropdown").contains(e.target)) {
-        document.getElementById("dropdown").classList.remove("dropdown-open");
-      }
-    });
-  </script>
-
+    </script>
 </body>
 </html>
