@@ -81,6 +81,14 @@
     gap: 20px;
     z-index: 10;
 }
+.project-pagination-dot{
+    width: 5px;
+    height: 8px;
+}
+.project-pagination-dot .active{
+    width: 5px;
+    height: 16px;
+}
     
 }
 @media (max-width: 965px){

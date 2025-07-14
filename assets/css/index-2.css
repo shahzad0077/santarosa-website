@@ -970,14 +970,15 @@ line-height: 24px; /* 150% */
             top: 50%;
             transform: translateY(-50%);
             display: flex;
+            align-items: center;
             flex-direction: column;
             gap: 20px;
             z-index: 10;
         }
 
         .project-pagination-dot {
-             width: 5px;
-            height: 8px;
+             width: 8px;
+            height: 5px;
             border-radius: 40px;
             background: var(--Text-disabled, #888);
             cursor: pointer;
@@ -988,8 +989,8 @@ line-height: 24px; /* 150% */
 
 
         .project-pagination-dot.active {
-            width: 5px;
-            height: 16px;
+            width: 16px;
+            height: 5px;
             border-radius: 40px;
             background-color:black;
         }
