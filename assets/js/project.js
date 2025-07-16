@@ -1,3 +1,11 @@
+//  navbar and side script
+ function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+
+
+
 const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
   const track = document.querySelector('.slider-track');
