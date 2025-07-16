@@ -257,11 +257,11 @@ line-height: normal;
     .number-details a{
         font-size: 18px;
     }
-     /* .contact-footer-number{
+      .contact-footer-number{
         width: 100%;
         min-width: 170px;
-        padding: 14px 10px !important;
-    } */
+        
+    } 
 }
 
 .footer-links-wrapper {
