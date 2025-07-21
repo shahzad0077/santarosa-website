@@ -168,6 +168,15 @@
     .title{
         width: 100% !important;
     }
+       .p-width-1{
+    width: 100%;
+}
+.p-width-2{
+    width: 100%;
+}
+.p-width-3{
+    width: 100%;
+}
     .rating-card-wrapper{
        flex-direction: column;
     }
@@ -199,8 +208,15 @@
     gap: 20px;
     z-index: 10;
 }
+.stats-card{
+        background: none;
+        padding: 0px;
+    }
+        .test-card-p-1 {
+        min-height: 400px;
+    }
 }
-@media (max-width: 600px){
+@media (max-width: 690px){
     .container{
         padding-left: 30px !important;
         padding-right: 30px !important;
@@ -250,6 +266,12 @@
         gap: 30px;
     }
     .service-tabs-img img{
+        width: 100%;
+    }
+    .service-tab-content h6{
+        width: 100%;
+    }
+    .service-tab-content p{
         width: 100%;
     }
     .stats-inner{
