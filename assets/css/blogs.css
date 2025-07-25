@@ -12,7 +12,7 @@
 background: url(../images/image_bg.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 1400px;
+  height: 1350px;
 }
 .blogs-main-wrapper {
   display: flex;
@@ -515,4 +515,17 @@ background: url(../images/image_bg.png);
   /* min-width: 1220px; */
   height: 700px;
   border-radius: 20px;
+}
+.overly-video {
+  position: relative;
+  height: 200px;
+}
+.overly-video::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background: var(--primary-200);
+  filter: blur(35px);
+  height: 200px;
+  top: -70px;
 }
