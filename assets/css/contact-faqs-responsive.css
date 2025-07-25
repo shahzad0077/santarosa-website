@@ -129,6 +129,23 @@
   height: 150px;
   top: -40px;
 }
+.video-container {
+        position: relative;
+  width: 100%;
+  height: 550px; /* or use 100vh or any fixed height */
+  overflow: hidden;
+  background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 550px;
+      border: none;
+      transition: opacity 0.5s ease;
+      border-radius: 20px;
+    }
 }
 
 @media (max-width: 965px) {
@@ -181,6 +198,23 @@
   .project-detail-main-wrapper {
     margin-top: -60px !important;
   }
+  .video-container {
+        position: relative;
+  width: 100%;
+  height: 550px; /* or use 100vh or any fixed height */
+  overflow: hidden;
+  background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 550px;
+      border: none;
+      transition: opacity 0.5s ease;
+      border-radius: 20px;
+    }
 }
 
 @media (max-width: 769px) {
@@ -260,6 +294,23 @@
   .blogs-detail-card-wrapper {
     padding: 30px;
   }
+  .video-container {
+        position: relative;
+  width: 100%;
+  height: 450px; /* or use 100vh or any fixed height */
+  overflow: hidden;
+  background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 450px;
+      border: none;
+      transition: opacity 0.5s ease;
+      border-radius: 20px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -372,6 +423,23 @@
   height: 300px;
   border-radius: 20px;
 }
+.video-container {
+        position: relative;
+  width: 100%;
+  height: 350px; /* or use 100vh or any fixed height */
+  overflow: hidden;
+  background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 350px;
+      border: none;
+      transition: opacity 0.5s ease;
+      border-radius: 20px;
+    }
 }
 
 @media (max-width: 395px) {
@@ -394,4 +462,21 @@
   .keywords {
     min-width: 300px;
   }
+  .video-container {
+        position: relative;
+  width: 100%;
+  height: 350px; /* or use 100vh or any fixed height */
+  overflow: hidden;
+  background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 350px;
+      border: none;
+      transition: opacity 0.5s ease;
+      border-radius: 20px;
+    }
 }

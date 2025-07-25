@@ -519,6 +519,7 @@ background: url(../images/image_bg.png);
 .overly-video {
   position: relative;
   height: 200px;
+  background: var(--primary-200);
 }
 .overly-video::before {
   position: absolute;
@@ -529,3 +530,129 @@ background: url(../images/image_bg.png);
   height: 200px;
   top: -70px;
 }
+
+.envoirmental-tabs-main{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.video-container {
+        position: relative;
+  width: 100%;
+  height: 650px; /* or use 100vh or any fixed height */
+  overflow: hidden;
+  background: #000;
+  border-radius: 20px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 650px;
+      border: none;
+      transition: opacity 0.5s ease;
+      border-radius: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+
+    }
+
+    .tab-switcher {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      display: flex;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      
+    }
+
+    .tab-button {
+      padding: 10px 30px;
+      border: none;
+      background: transparent;
+      color: #333;
+      font-weight: bold;
+      font-family: var(--font-family-primary);
+      font-size: 16px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s;
+    }
+
+    .tab-button.active {
+      color: white;
+    }
+
+    .indicator {
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(180deg, #fc8753 0%, #f03e12 100%);
+      border-radius: 50px;
+      z-index: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .tab-switcher-wrapper {
+      position: relative;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px 20px;
+      gap: 20px;
+    }
+
+    .impact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      width: 270px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.4s forwards;
+      padding: 10px;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .impact-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .impact-card h3 {
+      margin: 0px;
+      font-size: 1.2em;
+      font-family: var(--font-family-primary);
+      font-weight: 600;
+    }
+
+    .impact-card p {
+      margin: 0 ;
+      font-size: 0.9em;
+      font-family: var(--font-family-primary);
+      color: #555;
+    }
